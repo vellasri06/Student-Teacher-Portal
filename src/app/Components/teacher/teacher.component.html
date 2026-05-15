@@ -1,0 +1,11 @@
+<h2>Teacher View</h2>
+<div *ngFor="let s of files" style="border:1px solid black; margin:10px; padding:10px">
+  <p><b>Reg No:</b> {{ s.regno }}</p>
+  <p><b>Name:</b> {{ s.name }}</p>
+  <p><b>Batch:</b> {{ s.batch }}</p>
+  <p><b>Email:</b> {{ s.email }}</p>
+  <p><b>Section:</b> {{ s.Section }}</p>
+  <button (click)="download(s)">Download File</button>
+  <button (click)="this.fs.deletefile(s)">Delete</button>
+  <input [(ngModel)]="this.fs.ms">
+</div>

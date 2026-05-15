@@ -1,0 +1,36 @@
+<h2>Student Upload Form</h2>
+<form [formGroup]="form" (ngSubmit)="submit()">
+    Reg No:
+    <input formControlName="regno"><br><br>
+    <div *ngIf="f.regno.touched && f.regno.invalid">
+        <small *ngIf="f.regno.errors?.['required']">Reg No required</small>
+    </div><br><br>
+    Name:
+    <input formControlName="name"><br><br>
+    <div *ngIf="f.name.touched && f.name.invalid">
+        <small *ngIf="f.name.errors?.['required']">Name required</small>
+        <small *ngIf="f.name.errors?.['minlength']">Min 3 chars</small>
+    </div><br><br>
+    Batch No:
+    <input formControlName="batch"><br><br>
+    <div *ngIf="f.batch.touched && f.batch.invalid">
+        <small *ngIf="f.batch.errors?.['required']">Batch required</small>
+    </div><br><br>
+    Section:
+    <input formControlName="Section"><br><br>
+    <div *ngIf="f.Section.touched && f.Section.invalid">
+        <small *ngIf="f.Section.errors?.['required']">Batch required</small>
+    </div><br><br>
+    Email:
+    <input formControlName="email" type="email"><br><br>
+    <div *ngIf="f.email.touched && f.email.invalid">
+        <small *ngIf="f.email.errors?.['required']">Email required</small>
+        <small *ngIf="f.email.errors?.['email']">Invalid email</small>
+    </div><br><br>
+    Upload File:
+    <input type="file" (change)="onFileSelect($event)">
+    <p *ngIf="fileName">Selected: {{ fileName }}</p>
+    <br><br>
+    <button type="submit" [disabled]="form.invalid">Submit</button>
+    <p>{{this.fs.ms}}</p>
+</form>

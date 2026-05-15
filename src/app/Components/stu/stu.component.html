@@ -1,0 +1,17 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+    Name: <input formControlName="name">
+    <div *ngIf="form.controls.name.touched && form.controls.name.invalid">
+        <small *ngIf="form.controls.name.errors?.['required']">Name required</small>
+        <small *ngIf="form.controls.name.errors?.['minlength']">Name should contain 3</small>
+    </div>
+    City: <input formControlName="city">
+    <div *ngIf="form.controls.city.touched">
+        <small *ngIf="form.controls.city.errors?.['required']">City required</small>
+    </div>
+    Email: <input formControlName="email" type="email">
+    <div *ngIf="form.controls.email.touched">
+        <small *ngIf="form.controls.email.errors?.['required']">City required</small>
+    </div>
+    <input type="file">
+    <button type="submit" [disabled]="form.invalid">Submit</button>
+</form>

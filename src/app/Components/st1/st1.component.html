@@ -1,0 +1,49 @@
+<body>
+    <button class="btn" (click)="show()">Add</button><br><br>
+    <form [formGroup]="form" *ngIf="enable">
+        Name: <input formControlName="name">
+        <div *ngIf="form.controls.name.touched && form.controls.name.invalid">
+            <small *ngIf="form.controls.name.errors?.['required']">Name is required</small>
+            <small *ngIf="form.controls.name.errors?.['minlength']">Minimum 3 characters</small>
+        </div><br><br>
+        City: <input formControlName="city"><br><br>
+        Date Of Birth: <input formControlName="dob" type="date"><br><br>
+        Distance: <input formControlName="distance" type="number"><br><br>
+        <div *ngIf="form.controls.distance.touched && form.controls.distance.invalid">
+            <small *ngIf="form.controls.distance.errors?.['required']">Distance must be requried</small>
+        </div>
+        Gender: Female: <input formControlName="gender" type="radio" value="Female">
+        Male: <input formControlName="gender" type="radio" value="Male"><br><br>
+        Working: True: <input formControlName="working" type="radio" value="true">
+        False: <input formControlName="working" type="radio" value="false"><br><br>
+        <button type="submit" (click)="add1()">Submit</button><br><br>
+        <button (click)="save()">Save</button><br><br>
+    </form>
+
+    <input placeholder="Search for the student...🔍" class="inpu" [(ngModel)]="searchText"><br><br>
+    <table>
+        <tr>
+            <th>Index</th>
+            <th>Name</th>
+            <th>City</th>
+            <th>Date of Birth</th>
+            <th>Distance</th>
+            <th>Gender</th>
+            <th>Working status</th>
+            <th>Actions</th>
+        </tr>
+        <tr *ngFor="let u of sc.students; let i=index">
+            <ng-container *ngIf="u.name.toLowerCase().includes(searchText?.toLowerCase())">
+                <td>{{i+1}}</td>
+                <td>{{u.name}}</td>
+                <td>{{u.city}}</td>
+                <td>{{u.dob}}</td>
+                <td>{{u.distance | km}}</td>
+                <td>{{u.gender}}</td>
+                <td>{{u.working }}</td>
+                <td><button (click)="sc.delete(i)">🗑️</button> <button (click)="edit(i)">✏️</button></td>
+            </ng-container>
+        </tr>
+    </table>
+    <p *ngIf="message">{{message}}</p>
+</body>

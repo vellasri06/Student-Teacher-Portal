@@ -1,0 +1,98 @@
+import { Component } from '@angular/core';
+import { SerService } from 'src/app/ser.service';
+
+@Component({
+  selector: 'app-parent',
+  templateUrl: './parent.component.html',
+  styleUrls: ['./parent.component.css']
+})
+export class ParentComponent {
+  constructor(private sc: SerService) { }
+  student1 = [
+    {
+      "name": "Raviteja",
+      "dob": "1995-02-10",
+      "city": "Hyderabad",
+      "distance": 2000,
+      "gender": "Male",
+      "working": true
+    },
+    {
+      "name": "Sravani",
+      "dob": "1998-06-21",
+      "city": "Vijayawada",
+      "distance": 3500,
+      "gender": "Female",
+      "working": false
+    },
+    {
+      "name": "Kiran",
+      "dob": "1993-11-15",
+      "city": "Warangal",
+      "distance": 1200,
+      "gender": "Male",
+      "working": true
+    },
+    {
+      "name": "Anusha",
+      "dob": "1997-09-05",
+      "city": "Guntur",
+      "distance": 800,
+      "gender": "Female",
+      "working": true
+    },
+    {
+      "name": "Rahul",
+      "dob": "1994-01-25",
+      "city": "Nellore",
+      "distance": 5000,
+      "gender": "Male",
+      "working": false
+    },
+    {
+      "name": "Divya",
+      "dob": "1996-12-18",
+      "city": "Vizag",
+      "distance": 2700,
+      "gender": "Female",
+      "working": true
+    },
+    {
+      "name": "Arun",
+      "dob": "1992-03-30",
+      "city": "Karimnagar",
+      "distance": 1500,
+      "gender": "Male",
+      "working": true
+    },
+    {
+      "name": "Sneha",
+      "dob": "1999-07-12",
+      "city": "Tirupati",
+      "distance": 900,
+      "gender": "Female",
+      "working": false
+    },
+    {
+      "name": "Mahesh",
+      "dob": "1991-05-08",
+      "city": "Kurnool",
+      "distance": 4200,
+      "gender": "Male",
+      "working": true
+    },
+    {
+      "name": "Pooja",
+      "dob": "2000-10-02",
+      "city": "Anantapur",
+      "distance": 600,
+      "gender": "Female",
+      "working": false
+    }
+  ]
+  ms='';
+  rece(msg:string){
+    this.ms=msg;
+    
+  }
+}
